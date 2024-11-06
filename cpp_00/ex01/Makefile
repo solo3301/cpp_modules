@@ -6,7 +6,7 @@
 #    By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/09 19:15:47 by yadereve          #+#    #+#              #
-#    Updated: 2024/11/05 17:53:33 by yadereve         ###   ########.fr        #
+#    Updated: 2024/11/05 20:25:12 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,11 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
+# generate dependency files
+# PFLAGS += -MMD
+
 clean:
-	@rm -rf $(OBJ_DIR)/*
+	@rm -rf $(OBJ_DIR)
 	@echo "[OK]\t$(RED)temporary object files deleted$(NC)"
 
 fclean: clean

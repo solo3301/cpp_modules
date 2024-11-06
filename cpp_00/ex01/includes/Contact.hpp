@@ -6,7 +6,16 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/05 17:30:43 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/05 22:41:42 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
+#include "PhoneBook.hpp"
+
+
+
+#endif
