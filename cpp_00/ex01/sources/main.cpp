@@ -6,30 +6,32 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/06 07:46:28 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:08:55 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
 
 int main() {
+	std::string command = "";
+	PhoneBook phonebook = PhoneBook();
+
+	std::cout << GRN
+	<< "Write the following commands in uppercase: EXIT, ADD, SEARCH."
+	<< NC << std::endl;
 	while (true) {
-		std::string line;
-		std::cout << BLU << "Commands: ADD, SEARCH, EXIT" << NC << std::endl;
-		std::getline(std::cin, line);
-		if (line == "EXIT") {
-			std::cout << RED << "exit" << NC << std::endl;
+		std::cout << BLU << "-> " << NC;
+		std::getline(std::cin, command);
+		if (command == "EXIT") {
+			// std::cout << RED << "\t>>> exit <<<" << NC << std::endl;
 			break;
 		}
-		else if (line == "ADD") {
-			// AddContact();
-		}
-		else if (line == "SEARCH") {
-			// SearchContact();
-		}
-		else {
-			std::cout << "Only EXIT, ADD, SEARCH" << std::endl;
-		}
+		else if (command == "ADD")
+			phonebook.AddContact();
+		else if (command == "SEARCH")
+			phonebook.SearchContact();
+		else
+			std::cout << YEL "Only EXIT or ADD or SEARCH." NC << std::endl;
 	}
 	return 0;
 }
