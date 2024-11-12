@@ -6,7 +6,8 @@ forbidden_items = [
 	r'\bprintf\b', r'\bmalloc\b', r'\bcalloc\b', r'\brealloc\b', r'\bfree\b',
 	r'\bvector\b', r'\blist\b', r'\bmap\b', r'\bdeque\b', r'\bstack\b', r'\bqueue\b',
 	r'\bset\b', r'\bmultiset\b', r'\bunordered_map\b', r'\bunordered_set\b',
-	r'#include <algorithm>', r'#include <boost>', r'\busing namespace\b', r'\bfriend\b'
+	r'#include <algorithm>', r'#include <boost>', r'\busing namespace\b', r'\bfriend\b',
+	r'boost', r'algorithm', r'namespace', r'gsl'
 ]
 
 def path_checker():
@@ -31,7 +32,7 @@ def check_forbidden_items(file_path):
 					match = re.search(forbidden_item, line)
 					if match:
 						forbidden_text = match.group(0)
-						print(f'File: {file_path}, Line: {line_num}, Forbidden Item: \033[91m{forbidden_text}\033[0m')
+						print(f'File:{file_path}, Line:{line_num}, Forbidden Item: \033[91m{forbidden_text}\033[0m')
 						found = True
 	except Exception as e:
 		print(f"Error reading {file_path}: {e}")
