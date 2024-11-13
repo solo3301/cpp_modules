@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/12 19:29:55 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/13 21:53:40 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <iomanip>
 
 class Contact {
@@ -27,10 +28,8 @@ private:
 	std::string darkestSecret;
 
 public:
-	Contact() : firstName(), lastName(), nickName(), phoneNumber(), darkestSecret() {}
 	void AddDate();
 	void ShowSearch(int index);
-	void ValidateStr(std::string msg, std::string &param);
 	void Show();
 };
 

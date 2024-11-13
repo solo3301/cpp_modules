@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/12 19:42:21 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/13 22:30:59 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ void PhoneBook::AddContact() {
 }
 
 void PhoneBook::SearchContact() {
-	Contact *cont;
-	std::string index;
+	Contact *contact = PhoneBook::contacts;
+	int index = -1;
+	std::string input;
 
-	cont = PhoneBook::contacts;
-	std::cout << YEL << "     Index" << NC << "|"
-			<< YEL << "First name" << NC << "|"
-			<< YEL << " Last name" << NC << "|"
-			<< YEL << " Nick name" << NC << std::endl;
+	std::cout	<< GRN << "     Index" << NC << "|"
+				<< GRN << "First name" << NC << "|"
+				<< GRN << " Last name" << NC << "|"
+				<< GRN << " Nick name" << NC << std::endl;
 	for (int i = 0; i < MAX_CONTACT; i++) {
-		cont[i].ShowSearch(i);
-		(i < MAX_CONTACT) ? : i = 0;
+		contact[i].ShowSearch(i);
 	}
 	std::cout << "Enter index: ";
-	std::getline(std::cin, index);
-	if (index.length() > 0)
-		cont[std::stoi(index)].Show();
-
-}
-
+	std::getline(std::cin, input);
+	std::istringstream(input) >> index;
+	if (index > 0 && index <= MAX_CONTACT)
+		contact[index - 1].Show();
+	else
+		std::cout << "--- Invalid index ---" << std::endl;
+	}

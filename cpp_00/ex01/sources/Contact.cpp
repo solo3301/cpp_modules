@@ -6,25 +6,30 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/12 19:38:36 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/13 22:19:57 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Contact.hpp"
 
-void Contact::ValidateStr(std::string msg, std::string &param) {
+static void GetValidatedInput(const std::string msg, std::string &param, bool digitalOnly = false) {
 	std::string str;
 
-	while (!str[0]) {
-		if (msg.length() > 0)
+	while (str.empty()) {
+		if (!msg.empty())
 			std::cout << msg;
 		std::getline(std::cin, str);
-		if (msg == "Enter Phone number: ") {
+		if (digitalOnly) {
+			bool isNumeric = true;
 			for (std::string::size_type i = 0; i < str.length(); i++) {
 				if (!isdigit(str[i])) {
-					str.clear();
+					isNumeric = false;
 					break;
 				}
+			}
+			if (!isNumeric) {
+				std::cout << "Invalid input! Please enter only digits.\n";
+				str.clear();
 			}
 		}
 	}
@@ -32,14 +37,14 @@ void Contact::ValidateStr(std::string msg, std::string &param) {
 }
 
 void Contact::AddDate() {
-	ValidateStr("Enter First name: ", firstName);
-	ValidateStr("Enter Last name: ", lastName);
-	ValidateStr("Enter Nick name: ", nickName);
-	ValidateStr("Enter Phone number: ", phoneNumber);
-	ValidateStr("Enter Darkest secret: ", darkestSecret);
+	GetValidatedInput("Enter First name: ", firstName);
+	GetValidatedInput("Enter Last name: ", lastName);
+	GetValidatedInput("Enter Nick name: ", nickName);
+	GetValidatedInput("Enter Phone number: ", phoneNumber, true);
+	GetValidatedInput("Enter Darkest secret: ", darkestSecret);
 }
 
-static void PrintFormatted(const std::string str) {
+static void PrintFormatted(const std::string &str) {
 	if (str.length() > 10)
 		std::cout << str.substr(0, 9) << ".";
 	else
@@ -47,7 +52,7 @@ static void PrintFormatted(const std::string str) {
 }
 
 void Contact::ShowSearch(int index) {
-	PrintFormatted(std::to_string(index));
+	PrintFormatted(std::to_string(index + 1));
 	std::cout << "|";
 	PrintFormatted(firstName);
 	std::cout << "|";
