@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/13 22:30:59 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/13 22:37:34 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void PhoneBook::SearchContact() {
 	int index = -1;
 	std::string input;
 
-	std::cout	<< GRN << "     Index" << NC << "|"
-				<< GRN << "First name" << NC << "|"
-				<< GRN << " Last name" << NC << "|"
-				<< GRN << " Nick name" << NC << std::endl;
+	std::cout	<< GRN << std::setw(10) << "Index" << NC << "|"
+				<< GRN << std::setw(10) << "First name" << NC << "|"
+				<< GRN << std::setw(10) << "Last name" << NC << "|"
+				<< GRN << std::setw(10) << "Nick name" << NC << std::endl;
 	for (int i = 0; i < MAX_CONTACT; i++) {
 		contact[i].ShowSearch(i);
 	}
