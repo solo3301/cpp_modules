@@ -6,13 +6,14 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/13 22:19:57 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:35:39 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Contact.hpp"
 
-static void GetValidatedInput(const std::string msg, std::string &param, bool digitalOnly = false) {
+static void GetValidatedInput(const std::string msg, std::string &param, bool digitalOnly = false)
+{
 	std::string str;
 
 	while (str.empty()) {
@@ -36,7 +37,8 @@ static void GetValidatedInput(const std::string msg, std::string &param, bool di
 	param = str;
 }
 
-void Contact::AddDate() {
+void Contact::AddDate()
+{
 	GetValidatedInput("Enter First name: ", firstName);
 	GetValidatedInput("Enter Last name: ", lastName);
 	GetValidatedInput("Enter Nick name: ", nickName);
@@ -44,14 +46,16 @@ void Contact::AddDate() {
 	GetValidatedInput("Enter Darkest secret: ", darkestSecret);
 }
 
-static void PrintFormatted(const std::string &str) {
+static void PrintFormatted(const std::string &str)
+{
 	if (str.length() > 10)
 		std::cout << str.substr(0, 9) << ".";
 	else
 		std::cout << std::setw(10) << str;
 }
 
-void Contact::ShowSearch(int index) {
+void Contact::ShowSearch(int index)
+{
 	PrintFormatted(std::to_string(index + 1));
 	std::cout << "|";
 	PrintFormatted(firstName);
@@ -62,7 +66,8 @@ void Contact::ShowSearch(int index) {
 	std::cout << std::endl;
 }
 
-void Contact::Show() {
+void Contact::Show()
+{
 	std::cout << "First name: " << firstName << std::endl;
 	std::cout << "Last name: " << lastName << std::endl;
 	std::cout << "Nick name: " << nickName << std::endl;

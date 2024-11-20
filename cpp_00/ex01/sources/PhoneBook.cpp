@@ -6,13 +6,14 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/13 22:37:34 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:36:04 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
 
-void PhoneBook::AddContact() {
+void PhoneBook::AddContact()
+{
 	static int i = 0;
 
 	contacts[i].AddDate();
@@ -22,7 +23,8 @@ void PhoneBook::AddContact() {
 		i = 0;
 }
 
-void PhoneBook::SearchContact() {
+void PhoneBook::SearchContact()
+{
 	Contact *contact = PhoneBook::contacts;
 	int index = -1;
 	std::string input;
@@ -41,4 +43,4 @@ void PhoneBook::SearchContact() {
 		contact[index - 1].Show();
 	else
 		std::cout << "--- Invalid index ---" << std::endl;
-	}
+}

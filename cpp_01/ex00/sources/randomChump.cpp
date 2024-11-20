@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/18 19:35:12 by yadereve         ###   ########.fr       */
+/*   Created: 2024/11/14 12:22:54 by yadereve          #+#    #+#             */
+/*   Updated: 2024/11/18 20:08:06 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/Zombie.hpp"
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
-
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-
-class Contact
+void	randomChump(const std::string& name)
 {
-private:
-	std::string firstName;
-	std::string lastName;
-	std::string nickName;
-	std::string phoneNumber;
-	std::string darkestSecret;
-
-public:
-	void AddDate();
-	void ShowSearch(int index);
-	void Show();
-};
-
-#endif
+	Zombie zombie(name);
+	zombie.announce();
+}

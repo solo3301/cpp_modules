@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   zombieHord.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/18 19:35:12 by yadereve         ###   ########.fr       */
+/*   Created: 2024/11/14 12:21:20 by yadereve          #+#    #+#             */
+/*   Updated: 2024/11/19 19:51:16 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/Zombie.hpp"
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
-
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-
-class Contact
+Zombie*	zombieHorde(const int num, const std::string& name)
 {
-private:
-	std::string firstName;
-	std::string lastName;
-	std::string nickName;
-	std::string phoneNumber;
-	std::string darkestSecret;
+	if (num <= 0)
+		return nullptr;
 
-public:
-	void AddDate();
-	void ShowSearch(int index);
-	void Show();
-};
+	Zombie* horde = new Zombie[num];
 
-#endif
+	for (int i = 0; i < num; i++)
+		horde[i].setName(name);
+	return horde;
+}

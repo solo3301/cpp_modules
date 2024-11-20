@@ -6,13 +6,14 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/13 22:29:24 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:35:45 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
 
-int main() {
+int main()
+{
 	std::string command = "";
 	PhoneBook phonebook = PhoneBook();
 

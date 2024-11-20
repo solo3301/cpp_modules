@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/18 19:35:12 by yadereve         ###   ########.fr       */
+/*   Created: 2024/11/14 12:07:35 by yadereve          #+#    #+#             */
+/*   Updated: 2024/11/19 13:29:50 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 #include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
 
-class Contact
+# define NC "\x1b[0m"
+# define RED "\x1b[91m"
+# define GRN "\x1b[92m"
+# define YEL "\x1b[93m"
+# define BLU "\x1b[94m"
+
+class Zombie
 {
 private:
-	std::string firstName;
-	std::string lastName;
-	std::string nickName;
-	std::string phoneNumber;
-	std::string darkestSecret;
-
+	std::string name;
 public:
-	void AddDate();
-	void ShowSearch(int index);
-	void Show();
+	Zombie (const std::string& name);
+	~Zombie();
+	void announce() const;
 };
+
+Zombie*	newZombie(const std::string& name);
+void	randomChump(const std::string& name);
 
 #endif

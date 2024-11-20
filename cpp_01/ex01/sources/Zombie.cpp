@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/18 19:35:12 by yadereve         ###   ########.fr       */
+/*   Created: 2024/11/14 12:23:52 by yadereve          #+#    #+#             */
+/*   Updated: 2024/11/19 19:48:37 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/Zombie.hpp"
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+Zombie::Zombie() {}
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-
-class Contact
+Zombie::~Zombie()
 {
-private:
-	std::string firstName;
-	std::string lastName;
-	std::string nickName;
-	std::string phoneNumber;
-	std::string darkestSecret;
+	std::cout << name << RED << " is destroyed." << NC << std::endl;
+}
 
-public:
-	void AddDate();
-	void ShowSearch(int index);
-	void Show();
-};
+void Zombie::announce() const
+{
+	std::cout << BLU << name << NC << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
 
-#endif
+void Zombie::setName(const std::string &name)
+{
+	this->name = name;
+}
