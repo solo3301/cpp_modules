@@ -6,14 +6,14 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:52:14 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/25 19:37:36 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:38:56 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/HumanA.hpp"
 #include "../includes/HumanB.hpp"
 
-/* int main()
+int main()
 {
 	{
 		Weapon club = Weapon("crude spiked club");
@@ -32,9 +32,9 @@
 	}
 
 	return 0;
-} */
+}
 
-int main()
+/* int main()
 {
 	Weapon club = Weapon("crude spiked club");
 
@@ -49,4 +49,4 @@ int main()
 	jim.attack();
 
 	return 0;
-}
+} */
