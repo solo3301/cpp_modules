@@ -6,13 +6,13 @@
 #    By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2024/11/27 06:52:41 by yadereve         ###   ########.fr        #
+#    Updated: 2024/11/27 12:47:48 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = replace
 CC = c++
-PFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR = sources
 OBJ_DIR = objects
@@ -28,18 +28,18 @@ GREEN = \033[92m
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(@D)
-	$(CC) -c $(PFLAGS) -o $@ $<
+	$(CC) -c $(CXXFLAGS) -o $@ $<
 	@echo "[OK]\t$(ORANGE)"$@"$(NC)"
 
 $(NAME): $(OBJ)
-	@$(CC) $(PFLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "[OK]\t$(GREEN)$(NAME)$(NC) ready to use"
 	@echo "------------------------------"
 
 all: $(NAME)
 
 # generate dependency files
-# PFLAGS += -MMD
+# CXXFLAGS += -MMD
 
 clean:
 	@rm -rf $(OBJ_DIR)

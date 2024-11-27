@@ -3,43 +3,39 @@ import re
 import sys
 
 forbidden_items = [
-	r'\bprintf\b', r'\bmalloc\b', r'\bcalloc\b', r'\brealloc\b', r'\bfree\b',
-	r'\bvector\b', r'\blist\b', r'\bmap\b', r'\bdeque\b', r'\bstack\b', r'\bqueue\b',
-	r'\bset\b', r'\bmultiset\b', r'\bunordered_map\b', r'\bunordered_set\b',
-	r'#include <algorithm>', r'#include <boost>', r'\busing namespace\b', r'\bfriend\b',
-	r'boost', r'algorithm', r'namespace', r'gsl'
+	r'\bconstexpr\b', r'\bstatic_assert\b', r'\bnoexcept\b', r'\bdecltype\b', r'\bnullptr\b',
+	r'\bthread_local\b', r'\boverride\b', r'\bfinal\b', r'\balignas\b', r'\balignof\b',
+	r'\bstd::move\b', r'\bstd::forward\b', r'\bstd::to_string\b', r'\bstd::stoi\b',
+	r'\bstd::stol\b', r'\bstd::stoll\b', r'\bstd::stof\b', r'\bstd::stod\b',
+	r'\bstd::function\b', r'\bstd::bind\b', r'\bstd::shared_ptr\b', r'\bstd::unique_ptr\b',
+	r'\bstd::unordered_map\b', r'\bstd::unordered_set\b', r'\bstd::array\b', r'\bstd::tuple\b',
+	r'#\s*include\s*<thread>', r'#\s*include\s*<future>', r'#\s*include\s*<mutex>',
+	r'#\s*include\s*<unordered_map>', r'#\s*include\s*<unordered_set>'
 ]
 
-def path_checker():
-	paths = []
-	if len(sys.argv) > 1:
-		for i in range(1, min(3, len(sys.argv))):
-			path = sys.argv[i]
-			if path.startswith('./'):
-				paths.append(path)
-			else:
-				paths.append(f"./{path}")
-	else:
-		paths.append('./')
-	return paths
+def remove_comments(line):
+	line = re.sub(r'//.*', '', line)
+	line = re.sub(r'/\*.*?\*/', '', line, flags=re.DOTALL)
+	return line
 
 def check_forbidden_items(file_path):
 	found = False
 	try:
 		with open(file_path, 'r') as file:
 			for line_num, line in enumerate(file, 1):
+				line = remove_comments(line)
 				for forbidden_item in forbidden_items:
 					match = re.search(forbidden_item, line)
 					if match:
 						forbidden_text = match.group(0)
-						print(f'File:{file_path}, Line:{line_num}, Forbidden Item: \033[91m{forbidden_text}\033[0m')
+						print(f'File: {file_path}, Line: {line_num}, Forbidden Item: \033[91m{forbidden_text}\033[0m')
 						found = True
 	except Exception as e:
 		print(f"Error reading {file_path}: {e}")
 	return found
 
 def main():
-	paths = path_checker()
+	paths = ['./'] if len(sys.argv) == 1 else sys.argv[1:]
 	total_found = False
 
 	for directory_path in paths:
