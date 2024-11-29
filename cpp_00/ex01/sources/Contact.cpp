@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:15:41 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/27 11:34:34 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:39:59 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ static void PrintFormatted(const std::string &str)
 
 void Contact::ShowSearch(int index)
 {
-	PrintFormatted(std::to_string(index + 1));	//std::to_string was introduced in C++11.
+	std::ostringstream i;
+
+	i << (index + 1);
+	PrintFormatted(i.str());
 	std::cout << "|";
 	PrintFormatted(firstName);
 	std::cout << "|";
