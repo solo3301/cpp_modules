@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 17:46:27 by yadereve          #+#    #+#             */
-/*   Updated: 2024/11/28 20:35:06 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/11/30 12:28:58 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ Fixed::~Fixed()
 Fixed::Fixed(const int intValue)
 {
 	std::cout << "Int constructor called" << std::endl;
-	
+	value = intValue << fractionalBits;
 }
 
 Fixed::Fixed(const float floatValue)
 {
 	std::cout << "Float constructor called" << std::endl;
-
+	value = static_cast <int>(roundf(floatValue * (1 << fractionalBits)));
 }
 
 int Fixed::getRawBits() const
@@ -63,10 +63,16 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	return 0.0f;
+	return static_cast <float>(value) / (1 << fractionalBits);
 }
 
 int Fixed::toInt(void) const
 {
-	return 0;
+	return value >> fractionalBits;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed &other)
+{
+	os << other.toFloat();
+	return os;
 }
