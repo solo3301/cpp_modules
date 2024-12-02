@@ -6,12 +6,11 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 17:46:27 by yadereve          #+#    #+#             */
-/*   Updated: 2024/12/01 13:54:59 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:21:22 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Fixed.hpp"
-#include "Fixed.hpp"
 
 Fixed::Fixed() : _value(0)
 {

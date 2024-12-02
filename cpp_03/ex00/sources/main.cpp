@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 16:56:05 by yadereve          #+#    #+#             */
-/*   Updated: 2024/12/02 16:07:22 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:36:53 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int main()
 {
 	ClapTrap ben("Ben");
-	ClapTrap steav("Steav");
-	ClapTrap bob;
+	ClapTrap steav("Steave");
+	// ClapTrap bob;
 
-	bob = ben;
+	// bob = ben;
 	ben.attack("a target");
 	ben.takeDamage(5);
 	ben.beRepaired(3);
@@ -27,6 +27,7 @@ int main()
 
 	steav.attack("another target");
 	steav.takeDamage(12);
-	bob.takeDamage(1);
+
+	// bob.takeDamage(1);
 	return 0;
 }
