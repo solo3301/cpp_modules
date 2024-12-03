@@ -13,7 +13,7 @@ Features
 
 To install the script automatically, use the following curl command:
 
-	bash <(curl -s https://raw.githubusercontent.com/jannco/cpp_modules/refs/heads/main/forbidden_checker/main/install.sh)
+	bash <(curl -s https://raw.githubusercontent.com/jannco/cpp_modules/main/forbidden_checker/install.sh)
 
 This script will download the necessary file and make it executable.
 
