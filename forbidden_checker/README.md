@@ -19,24 +19,24 @@ This script will download the necessary file and make it executable.
 
 # Usage
 
-## Scan the current directory:
+### Scan the current directory:
 
 	forbidden_checker
 
-## Scan a specific directory:
+### Scan a specific directory:
 
 	forbidden_checker path/to/directory
 
-## Example output:
+### Example output:
 
 	File: ./example.cpp, Line: 42, Forbidden Item: constexpr
 	File: ./header.hpp, Line: 13, Forbidden Item: #include <unordered_map>
 
-If no issues are found:
+###If no issues are found:
 
 	Everything is [OK]
 
 # Requirements
 
-	•	Python 3.6 or newer.
+	•	Python 3 or newer.
 
