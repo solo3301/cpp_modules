@@ -6,18 +6,18 @@
 #    By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2024/12/03 12:59:44 by yadereve         ###   ########.fr        #
+#    Updated: 2024/12/03 12:59:15 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = clapTrap
+NAME = scavTrap
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR = sources
 OBJ_DIR = objects
 
-SRC_FILE = main.cpp ClapTrap.cpp
+SRC_FILE = main.cpp ClapTrap.cpp ScavTrap.cpp
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILE))
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.cpp=.o)))
 

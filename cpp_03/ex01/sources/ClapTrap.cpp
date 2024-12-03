@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 16:55:53 by yadereve          #+#    #+#             */
-/*   Updated: 2024/12/03 15:29:53 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/12/03 15:43:25 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap() : _name("Unnamed"), _hitPoints(10), _energyPoints(10), _att
 
 ClapTrap::ClapTrap(const std::string& name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "ClapTrap parameterized constructor called for " << GREEN << _name << NC << std::endl;
+	std::cout << "ClapTrap parameterized constructor called for " <<GREEN << _name << NC << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
