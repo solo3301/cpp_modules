@@ -5,7 +5,7 @@ mkdir -p "$HOME/.forbidden_checker"
 cd "$HOME/.forbidden_checker" || exit 1
 
 # Download the main script
-curl -s -O https://raw.githubusercontent.com/jannco/cpp_modules/refs/heads/main/forbidden_checker/main/main/checker.py
+curl -s -O https://raw.githubusercontent.com/jannco/cpp_modules/forbidden_checker/main/checker.py
 
 # Make the script executable
 chmod +x checker.py
