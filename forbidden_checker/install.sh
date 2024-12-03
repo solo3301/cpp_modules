@@ -8,12 +8,12 @@ cd "$HOME/.forbidden_checker" || exit 1
 curl -s -O https://raw.githubusercontent.com/jannco/cpp_modules/main/forbidden_checker/checker_cpp89.py
 
 # Make the script executable
-chmod +x checker.py
+chmod +x checker_cpp89.py
 
 # Add the script to PATH via alias
-if ! grep -q 'alias forbidden-checker' "$HOME/.bashrc"; then
-	echo 'alias forbidden-checker="python3 $HOME/.forbidden_checker/checker.py"' >> "$HOME/.bashrc"
-	echo "Installation successful! Restart your terminal or run 'source ~/.bashrc' to activate."
+if ! grep -q 'alias forbidden-checker' "$HOME/.zshrc"; then
+	echo 'alias forbidden-checker="python3 $HOME/.forbidden_checker/checker_cpp89.py"' >> "$HOME/.zshrc"
+	echo "Installation successful! Restart your terminal or run 'source ~/.zshrc' to activate."
 else
 	echo "The script is already installed."
 fi
