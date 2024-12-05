@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:23:58 by yadereve          #+#    #+#             */
-/*   Updated: 2024/12/05 18:05:34 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:41:21 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,48 +16,50 @@
 #include "../includes/WrongAnimal.hpp"
 #include "../includes/WrongCat.hpp"
 
-// with a memory leak
 int main()
 {
-	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	std::cout << std::endl;
+	delete j;//should not create a leak
+	delete i;
 	return 0;
 }
 
-// no memory leaks
 /* int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+	const int animalCount = 4;
+	Animal* animals[animalCount];
 
-	std::cout << "Type of meta: " << meta->getType() << std::endl;
-	std::cout << "Type of dog: " << dog->getType() << std::endl;
-	std::cout << "Type of cat: " << cat->getType() << std::endl;
+	// For Dog
+	for (int i = 0; i < animalCount / 2; ++i)
+		animals[i] = new Dog;
+	// For CAT
+	for (int i = animalCount / 2; i < animalCount; ++i)
+		animals[i] = new Cat;
 
-	meta->makeSound();
-	dog->makeSound();
-	cat->makeSound();
+	std::cout << "\nTesting ideas: " << std::endl;
 
-	delete meta;
-	delete dog;
-	delete cat;
+	// For Dog
+	for (int i = 0; i < animalCount / 2; ++i)
+	{
+		std::string ideaDog = "I want to chase a cat!";
+		dynamic_cast<Dog*>(animals[i])->setIdea(i, ideaDog);
+		std::cout << "Dog's idea: " << dynamic_cast<Dog*>(animals[i])->getIdea(i) << std::endl;
+	}
 
-	std::cout << "\nWrong Animal Test:" << std::endl;
-	const WrongAnimal* wrongAnimal = new WrongAnimal();
-	const WrongAnimal* wrongCat = new WrongCat();
+	// For CAT
+	for (int i = animalCount / 2; i < animalCount; ++i)
+	{
+		std::string ideaCat = "I want to chase a mouse!";
+		dynamic_cast<Cat*>(animals[i])->setIdea(i, ideaCat);
+		std::cout << "Cat's idea: " << dynamic_cast<Cat*>(animals[i])->getIdea(i - animalCount / 2) << std::endl;
+	}
 
-	wrongAnimal->makeSound();
-	wrongCat->makeSound();
-
-	delete wrongAnimal;
-	delete wrongCat;
+	std::cout << "\nCleaning up:" << std::endl;
+	for (int i = 0; i < animalCount; i++)
+		delete animals[i];
 	return 0;
 } */
+
