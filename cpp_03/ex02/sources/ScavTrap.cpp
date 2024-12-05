@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 09:23:26 by yadereve          #+#    #+#             */
-/*   Updated: 2024/12/03 16:53:03 by yadereve         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:28:58 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,19 @@ ScavTrap::~ScavTrap()
 void ScavTrap::guardGate()
 {
 	std::cout << ORANGE << "ScavTrap " << _name << " is now in Gate keeper mode." << NC << std::endl;
+}
+
+void ScavTrap::attack(const std::string &target)
+{
+	if (_hitPoints > 0 && _energyPoints > 0)
+	{
+		_energyPoints--;
+		std::cout << ORANGE << "ScavTrap " << _name << " viciously attacks " << target
+			<< ", dealing " << _attackDamage << " scavenger points of damage!" << NC << std::endl;
+	}
+	else
+		std::cout << "ClapTrap " << _name << " cannot repair itself. Not enough energy or health!" << std::endl;
+
 }
 
 void ScavTrap::showTrap()

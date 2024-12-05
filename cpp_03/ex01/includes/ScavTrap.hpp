@@ -14,6 +14,7 @@ public:
 
 	void guardGate();
 	void showTrap();
+	void attack(const std::string& target);
 };
 
 #endif

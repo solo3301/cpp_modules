@@ -6,11 +6,11 @@
 #    By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2024/12/03 16:41:26 by yadereve         ###   ########.fr        #
+#    Updated: 2024/12/05 16:18:14 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavTrap
+NAME = fragTrap
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
