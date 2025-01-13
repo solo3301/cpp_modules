@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include <stdexcept>
+#include <cstdlib>
 
 #define NC "\033[0m"
 #define RED "\033[31m"

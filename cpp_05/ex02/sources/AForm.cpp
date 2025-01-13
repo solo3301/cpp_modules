@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:05:32 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/09 18:50:57 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:16:57 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/Bureaucrat.hpp"
 
 
-AForm::AForm(const std::string& name, int signGrade, int executeGrade) 
+AForm::AForm(const std::string& name, int signGrade, int executeGrade)
 	: _name(name), _signGrade(signGrade), _executeGrade(executeGrade), _isSigned(false)
 {
 	if (_signGrade < 1 || _executeGrade < 1)
@@ -24,7 +24,7 @@ AForm::AForm(const std::string& name, int signGrade, int executeGrade)
 
 }
 
-AForm::AForm(const AForm& other) 
+AForm::AForm(const AForm& other)
 	: _name(other._name), _signGrade(other._signGrade), _executeGrade(other._executeGrade), _isSigned(other._isSigned)
 { }
 
@@ -58,7 +58,7 @@ int AForm::getExecuteGrade() const
 	return _executeGrade;
 }
 
-void AForm::beSignet(Bureaucrat& b)
+void AForm::beSigned(const Bureaucrat& b)
 {
 	if (b.getGrade() > _signGrade)
 		throw GradeTooLowException();

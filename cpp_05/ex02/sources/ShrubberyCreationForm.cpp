@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:04:08 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/10 20:19:36 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/13 11:37:47 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) 
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
 	: AForm("ShrubberyCreationForm", 145, 137), _target(target)
 { }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 { }
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
 	if (!getIsSigned())
 		throw FormNotSignetExeption();
 	if (executor.getGrade() > getExecuteGrade())
 		throw GradeTooLowException();
 
-	std::ofstream file(_target + "_shrubbery");
+	std::ofstream file((_target + "_shrubbery").c_str());
 	if (file.is_open())
 	{
 		file << "       _-_\n"

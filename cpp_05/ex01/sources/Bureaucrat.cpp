@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 12:13:47 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/09 12:10:13 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:01:11 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int Bureaucrat::getGrade() const
 	return _grade;
 }
 
- void Bureaucrat::incrementGrade()
+void Bureaucrat::incrementGrade()
 {
 	if (_grade <= 1)
 		throw GradeTooHighException();
@@ -76,7 +76,7 @@ void Bureaucrat::signForm(Form& form)
 {
 	try
 	{
-		form.beSignet(*this);
+		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << "." << std::endl;
 	}
 	catch (std::exception& ex)

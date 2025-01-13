@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 12:15:22 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/13 09:50:22 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:05:25 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int main()
 		bob.signForm(shrubbery);
 		bob.executeForm(shrubbery);
 
-		bob.signForm(shrubbery);
-		bob.executeForm(shrubbery);
+		bob.signForm(robotmy);
+		bob.executeForm(robotmy);
 
 		Bureaucrat president("President", 1);
 		president.signForm(pardon);
@@ -38,7 +38,6 @@ int main()
 	{
 		std::cout << "Exeption " << ex.what() << std::endl;
 	}
-
 
 	return 0;
 }

@@ -1,7 +1,7 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
-#include "/Bureaucrat.h"
+#include <iostream>
 
 class Bureaucrat;
 
@@ -17,19 +17,22 @@ public:
 	int getSignGrade() const;
 	int getExecuteGrade() const;
 	bool getIsSigned() const;
-	void beSignet(const Bureaucrat& b);
+	void beSigned(const Bureaucrat& b);
 	virtual void execute(const Bureaucrat& executor) const = 0;
 
 	class GradeTooHighException : public std::exception
 	{
-		const char* what() const throw();
+		public:
+			const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
+	public:
 		const char* what() const throw();
 	};
 	class FormNotSignetExeption : public std::exception
 	{
+	public:
 		const char* what() const throw();
 	};
 

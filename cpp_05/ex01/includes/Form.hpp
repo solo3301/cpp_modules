@@ -2,7 +2,6 @@
 #define FORM_HPP
 
 #include <iostream>
-#include <string>
 
 class Bureaucrat;
 
@@ -18,13 +17,15 @@ public:
 	int getSignGrade() const;
 	int getExecuteGrade() const;
 	bool getIsSigned() const;
-	void beSignet(Bureaucrat& b);
+	void beSigned(Bureaucrat& b);
 	class GradeTooHighException : public std::exception
 	{
+	public:
 		const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
+	public:
 		const char* what() const throw();
 	};
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:05:32 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/09 12:18:07 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:16:53 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/Bureaucrat.hpp"
 
 
-Form::Form(const std::string& name, int signGrade, int executeGrade) 
+Form::Form(const std::string& name, int signGrade, int executeGrade)
 	: _name(name), _signGrade(signGrade), _executeGrade(executeGrade), _isSigned(false)
 {
 	if (_signGrade < 1 || _executeGrade < 1)
@@ -24,7 +24,7 @@ Form::Form(const std::string& name, int signGrade, int executeGrade)
 
 }
 
-Form::Form(const Form& other) 
+Form::Form(const Form& other)
 	: _name(other._name), _signGrade(other._signGrade), _executeGrade(other._executeGrade), _isSigned(other._isSigned)
 { }
 
@@ -58,7 +58,7 @@ int Form::getExecuteGrade() const
 	return _executeGrade;
 }
 
-void Form::beSignet(Bureaucrat& b)
+void Form::beSigned(Bureaucrat& b)
 {
 	if (b.getGrade() > _signGrade)
 		throw GradeTooLowException();
