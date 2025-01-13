@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 12:13:47 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/13 12:29:32 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:12:13 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void Bureaucrat::signForm(AForm& form)
 	}
 }
 
-void Bureaucrat::executeForm(const AForm &form)
+void Bureaucrat::executeForm(const AForm& form)
 {
 	try
 	{
