@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:05:32 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/13 12:16:57 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:48:23 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void AForm::beSigned(const Bureaucrat& b)
 	if (b.getGrade() > _signGrade)
 		throw GradeTooLowException();
 	_isSigned = true;
-}
+} 
 
 const char* AForm::GradeTooHighException::what() const throw()
 {

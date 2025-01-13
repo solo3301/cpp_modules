@@ -1,7 +1,6 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "Bureaucrat.h"
 #include "AForm.hpp"
 
 class Bureaucrat
