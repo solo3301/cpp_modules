@@ -13,8 +13,6 @@
 #include "../includes/Animal.hpp"
 #include "../includes/Cat.hpp"
 #include "../includes/Dog.hpp"
-#include "../includes/WrongAnimal.hpp"
-#include "../includes/WrongCat.hpp"
 
 // with a memory leak
 int main()
