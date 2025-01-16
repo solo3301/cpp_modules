@@ -6,11 +6,14 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 12:13:47 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/13 13:12:13 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:49:50 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() : _name("Unnamed"), _grade(150)
+{ }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
 {

@@ -6,13 +6,16 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:05:32 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/13 17:48:23 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:55:40 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/AForm.hpp"
 #include "../includes/Bureaucrat.hpp"
 
+AForm::AForm() 
+	: _name("Unnamed"), _signGrade(150), _executeGrade(150), _isSigned(false)
+{ }
 
 AForm::AForm(const std::string& name, int signGrade, int executeGrade)
 	: _name(name), _signGrade(signGrade), _executeGrade(executeGrade), _isSigned(false)
