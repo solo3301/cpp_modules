@@ -6,13 +6,13 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 09:26:36 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/16 13:25:47 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:55:35 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() 
+PresidentialPardonForm::PresidentialPardonForm()
 	: AForm("PresidentialPardonForm", 25, 5), _target("default")
 { }
 
@@ -20,7 +20,8 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
 	: AForm("PresidentialPardonForm", 25, 5), _target(target)
 { }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other), _target(other._target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
+	: AForm(other), _target(other._target)
 { }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)

@@ -8,6 +8,7 @@ class Bureaucrat;
 class Form
 {
 public:
+	Form();
 	Form(const std::string& name, int signGrade, int executeGrade);
 	Form(const Form& other);
 	Form& operator=(const Form& other);

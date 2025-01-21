@@ -6,13 +6,13 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 16:57:07 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/16 13:47:50 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:55:43 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() 
+RobotomyRequestForm::RobotomyRequestForm()
 	: AForm("RobotomyRequestForm", 72, 45), _target("default")
 { }
 
@@ -20,7 +20,8 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
 	: AForm("RobotomyRequestForm", 72, 45), _target(target)
 { }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other), _target(other._target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
+	: AForm(other), _target(other._target)
 { }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)

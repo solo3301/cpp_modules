@@ -6,13 +6,16 @@
 /*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:05:32 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/13 12:16:53 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/01/17 21:47:09 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Form.hpp"
 #include "../includes/Bureaucrat.hpp"
 
+Form::Form() 
+	: _name("Unnamed"), _signGrade(1), _executeGrade(1), _isSigned(false)
+{ }
 
 Form::Form(const std::string& name, int signGrade, int executeGrade)
 	: _name(name), _signGrade(signGrade), _executeGrade(executeGrade), _isSigned(false)
