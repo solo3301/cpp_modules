@@ -6,18 +6,18 @@
 #    By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/01/22 16:54:45 by yadereve         ###   ########.fr        #
+#    Updated: 2025/01/23 17:48:36 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = serialize
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR = sources
 OBJ_DIR = objects
 
-SRC_FILE = main.cpp ScalarConverter.cpp
+SRC_FILE = main.cpp ScalarConverter.cpp Serializer.cpp
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILE))
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.cpp=.o)))
 
