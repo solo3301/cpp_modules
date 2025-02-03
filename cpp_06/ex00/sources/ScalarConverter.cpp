@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:45:35 by yadereve          #+#    #+#             */
-/*   Updated: 2025/02/03 11:52:44 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:34:29 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void printIntRepresentation(double value)
 static void printFloatRepresentation(float value)
 {
 	if (isnan(value))
-		std::cout << "float: impossible\n";
+		std::cout << "float: nanf\n";
 	else if (isinf(value))
 		std::cout << "float: " << (value > 0 ? "+inff" : "-inff") << std::endl;
 	else
@@ -60,7 +60,7 @@ static void printFloatRepresentation(float value)
 static void printDoubleRepresentation(double value)
 {
 	if (isnan(value))
-		std::cout << "double: impossible\n";
+		std::cout << "double: nan\n";
 	else if (isinf(value))
 		std::cout << "double: " << (value > 0 ? "+inf" : "-inf") << std::endl;
 	else
