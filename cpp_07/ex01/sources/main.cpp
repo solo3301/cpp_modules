@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:52:20 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/27 18:52:20 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:14:12 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ int main()
 	iter(chars, charLen, print);
 	std::cout << std::endl;
 
-			return 0;
+	return 0;
 }

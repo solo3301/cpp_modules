@@ -1,17 +1,10 @@
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
-
-# include <iostream>		// For input and output stream
-# include <string>			// For string class and functions
-# include <cstring>			// For C-style string functions
-# include <cmath>			// For common mathematical functions
-# include <sstream>			// For string stream classes
-# include <fstream>			// For file stream classes
-# include <iomanip>			// For input/output manipulation
-# include <exception>		// For standard exception classes
-# include <stdexcept>		// For standard exception classes (runtime_error, etc.)
-# include <limits>			// For numeric limits
+#include <iostream>
+#include <exception>
+#include <stdexcept>
+#include <cstdlib>
 
 template <typename T>
 class Array

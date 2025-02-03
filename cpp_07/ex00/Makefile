@@ -6,7 +6,7 @@
 #    By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/01/31 13:02:26 by yadereve         ###   ########.fr        #
+#    Updated: 2025/02/03 16:11:47 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@echo "[OK]\t$(ORANGE)"$@"$(NC)"
 
 $(NAME): $(OBJ)
-	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME) -lc++
+	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "[OK]\t$(GREEN)$(NAME)$(NC) ready to use"
 	@echo "------------------------------"
 
@@ -43,6 +43,9 @@ all: $(NAME)
 
 # leacks
 # CXXFLAGS += -fsanitize=address
+
+# for MacOs: cpp07
+#	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME) -lc++
 
 # valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./whatever
 
