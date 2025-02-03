@@ -75,7 +75,7 @@ This repository contains exercises from the **CPP Modules**, a series of project
    ```
 3. Clean the compiled files:
    ```sh
-   make clean
+   make fclean
    ```
 
 ## 📜 License
