@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:53:14 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/23 20:04:40 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:59:33 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int main()
 {
 	Base* obj = generate();
-	std::cout << "Identifying by pointer:" << std::endl;
+	std::cout << "\n<< Identifying by pointer >>" << std::endl;
 	identify(obj);
-	std::cout << "Identifying by reference:" << std::endl;
+	std::cout << "\n<< Identifying by reference >>" << std::endl;
 	identify(*obj);
 
 	delete obj;
