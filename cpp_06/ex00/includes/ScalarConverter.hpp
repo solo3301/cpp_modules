@@ -2,14 +2,13 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <string>
-#include <limits>
 #include <cmath>
 #include <iomanip>
+#include <cstdlib>
 
 class ScalarConverter
 {
-public: 
+public:
 	ScalarConverter();
 	ScalarConverter(const ScalarConverter& other);
 	ScalarConverter& operator=(const ScalarConverter& other);

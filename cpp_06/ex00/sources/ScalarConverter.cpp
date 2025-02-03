@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:45:35 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/22 20:02:07 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:52:44 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,57 +29,114 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 ScalarConverter::~ScalarConverter()
 { }
 
+static void printCharRepresentation(int value)
+{
+	if (value > 127 || value < -128)
+		std::cout << "char: impossible\n";
+	else if (!isprint(static_cast<char>(value)))
+		std::cout << "char: Non displayable\n";
+	else
+		std::cout << "char: " << static_cast<char>(value) << std::endl;
+}
+
+static void printIntRepresentation(double value)
+{
+	if (isnan(value) || value < -2147483648.0 || value > 2147483648.0)
+		std::cout << "int: impossible\n";
+	else
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
+}
+
+static void printFloatRepresentation(float value)
+{
+	if (isnan(value))
+		std::cout << "float: impossible\n";
+	else if (isinf(value))
+		std::cout << "float: " << (value > 0 ? "+inff" : "-inff") << std::endl;
+	else
+		std::cout << "float: " << std::fixed << std::setprecision(1) << value << "f\n";
+}
+
+static void printDoubleRepresentation(double value)
+{
+	if (isnan(value))
+		std::cout << "double: impossible\n";
+	else if (isinf(value))
+		std::cout << "double: " << (value > 0 ? "+inf" : "-inf") << std::endl;
+	else
+		std::cout << "double: " << value << std::endl;
+}
+
+static bool isNanOrInf(const std::string &literal)
+{
+	const char* specialLiterals[] = {"nan", "inf", "inff", "-inf", "+inf", "-inff", "+inff"};
+	for (int i = 0; i < 7; ++i)
+	{
+		if (literal == specialLiterals[i])
+			return true;
+	}
+	return false;
+}
+
+static bool hasDoubleSign(const std::string& literal)
+{
+	size_t plusCount = 0;
+	size_t minusCount = 0;
+	for (size_t i = 0; i < literal.length(); ++i)
+	{
+		if (literal[i] == '+')
+			plusCount++;
+		if (literal[i] == '-')
+			minusCount++;
+	}
+	return (plusCount > 1 || minusCount > 1);
+}
+
 void ScalarConverter::convert(const std::string& literal)
 {
-	if (literal.length() == 1 && !std::isdigit(literal[0]))
+	if (literal.empty())
 	{
-		char c = literal[0];
-		std::cout << "char: " << c << std::endl;
-		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
+		std::cout << "Invalid literal: empty string\n";
 		return;
 	}
-	try
+
+	if (isNanOrInf(literal))
 	{
-		char c = static_cast<char>(std::stoi(literal));
-		if (std::isprint(c))
-			std::cout << "char: '" << c << "'" << std::endl;
-		else
-			std::cout << "char: Non displayable" << std::endl;
-	}
-	catch (...)
-	{
-		std::cout << "char: impossible" << std::endl;
+		double value = strtod(literal.c_str(), NULL);
+		printCharRepresentation(static_cast<int>(value));
+		printIntRepresentation(value);
+		printFloatRepresentation(static_cast<float>(value));
+		printDoubleRepresentation(value);
+		return;
 	}
 
-	try
+	if (literal.length() == 1 && isprint(literal[0]) && !isdigit(literal[0]))
 	{
-		int i = std::stoi(literal);
-		std::cout << "int: " << i << std::endl;
-	}
-	catch (...)
-	{
-		std::cout << "int: impossible" << std::endl;
-	}
-
-	try
-	{
-		float f = std::stof(literal);
-		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-	}
-	catch (...)
-	{
-		std::cout << "float: impossible" << std::endl;
+		double value = static_cast<double>(literal[0]);
+		printCharRepresentation(static_cast<int>(value));
+		printIntRepresentation(value);
+		printFloatRepresentation(static_cast<float>(value));
+		printDoubleRepresentation(value);
+		return;
 	}
 
-	try
+	if(literal.find_first_not_of("+-0123456789.f") != std::string::npos || hasDoubleSign(literal))
 	{
-		double d = std::stod(literal);
-		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+		std::cerr << "Invalid literal\n";
+		return;
 	}
-	catch (...)
+
+	char *endptr;
+	double value = strtod(literal.c_str(), &endptr);
+
+	if (*endptr != '\0' && *endptr != 'f')
 	{
-		std::cout << "double impossible" <<std::endl;
+		std::cerr << "Invalid literal\n";
+		return;
 	}
+
+	printCharRepresentation(static_cast<int>(value));
+	printIntRepresentation(value);
+	printFloatRepresentation(static_cast<float>(value));
+	printDoubleRepresentation(value);
 }

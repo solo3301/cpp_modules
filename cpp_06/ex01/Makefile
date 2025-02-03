@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+         #
+#    By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/01/23 17:48:36 by yadereve         ###   ########.fr        #
+#    Updated: 2025/02/03 12:34:58 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC_DIR = sources
 OBJ_DIR = objects
 
-SRC_FILE = main.cpp ScalarConverter.cpp Serializer.cpp
+SRC_FILE = main.cpp Serializer.cpp
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILE))
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.cpp=.o)))
 
@@ -43,6 +43,8 @@ all: $(NAME)
 
 # leacks
 # CXXFLAGS += -fsanitize=address
+
+# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./whatever
 
 clean:
 	@rm -rf $(OBJ_DIR)

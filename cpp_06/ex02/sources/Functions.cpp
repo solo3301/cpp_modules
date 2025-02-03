@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Functions.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:53:06 by yadereve          #+#    #+#             */
-/*   Updated: 2025/01/23 20:04:25 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:16:11 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Base* generate()
 {
 	std::srand(std::time(NULL));
-	int randValue = std::rand() % 3;
+	int randValue = std::rand() % 4;
 	switch (randValue)
 	{
 		case 0:
@@ -50,15 +50,15 @@ void identify(Base& p)
 		(void)dynamic_cast<A&>(p);
 		std::cout << "Type: A" << std::endl;
 	}
-	catch (std::bad_cast&)
+	catch (std::exception& e)
 	{ }
-	
+
 	try
 	{
 		(void)dynamic_cast<B&>(p);
 		std::cout << "Type: B" << std::endl;
 	}
-	catch (std::bad_cast&)
+	catch (std::exception& e)
 	{ }
 
 	try
@@ -66,6 +66,6 @@ void identify(Base& p)
 		(void)dynamic_cast<C&>(p);
 		std::cout << "Type: C" << std::endl;
 	}
-	catch (std::bad_cast&)
+	catch (std::exception& e)
 	{ }
 }

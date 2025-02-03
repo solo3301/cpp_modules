@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+         #
+#    By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/01/22 16:54:45 by yadereve         ###   ########.fr        #
+#    Updated: 2025/01/31 13:03:46 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,8 @@ all: $(NAME)
 
 # leacks
 # CXXFLAGS += -fsanitize=address
+
+# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./whatever
 
 clean:
 	@rm -rf $(OBJ_DIR)

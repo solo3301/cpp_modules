@@ -6,7 +6,7 @@
 #    By: yadereve <yadereve@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/01/31 10:55:42 by yadereve         ###   ########.fr        #
+#    Updated: 2025/01/31 13:02:48 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,8 @@ all: $(NAME)
 
 # leacks
 # CXXFLAGS += -fsanitize=address
+
+# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./whatever
 
 clean:
 	@rm -rf $(OBJ_DIR)
