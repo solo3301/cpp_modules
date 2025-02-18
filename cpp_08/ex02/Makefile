@@ -6,11 +6,11 @@
 #    By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/01/28 18:48:00 by yadereve         ###   ########.fr        #
+#    Updated: 2025/02/17 12:05:48 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = array
+NAME = mutantstack
 cC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -44,6 +44,10 @@ all: $(NAME)
 # leacks
 # CXXFLAGS += -fsanitize=address
 
+# for MacOs: cpp08
+#	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME) -lc++
+
+# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./whatever
 clean:
 	@rm -rf $(OBJ_DIR)
 	@echo "[OK]\t$(RED)temporary object files deleted$(NC)"

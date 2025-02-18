@@ -6,7 +6,7 @@
 #    By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/01/30 13:00:21 by yadereve         ###   ########.fr        #
+#    Updated: 2025/02/14 15:38:36 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,11 @@ all: $(NAME)
 
 # leacks
 # CXXFLAGS += -fsanitize=address
+
+# for MacOs: cpp08
+#	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME) -lc++
+
+# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./whatever
 
 clean:
 	@rm -rf $(OBJ_DIR)

@@ -6,18 +6,18 @@
 #    By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/01/28 18:48:00 by yadereve         ###   ########.fr        #
+#    Updated: 2025/02/14 19:45:27 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = array
+NAME = span
 cC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR = sources
 OBJ_DIR = objects
 
-SRC_FILE = main.cpp
+SRC_FILE = main.cpp Span.cpp
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILE))
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.cpp=.o)))
 
@@ -44,6 +44,10 @@ all: $(NAME)
 # leacks
 # CXXFLAGS += -fsanitize=address
 
+# for MacOs: cpp08
+#	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME) -lc++
+
+# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./whatever
 clean:
 	@rm -rf $(OBJ_DIR)
 	@echo "[OK]\t$(RED)temporary object files deleted$(NC)"
