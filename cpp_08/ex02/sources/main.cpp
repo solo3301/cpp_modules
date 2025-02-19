@@ -32,7 +32,7 @@ int main()
 	lst.push_back(0);
 	lst.push_back(9);
 	std::cout << "List elemants: ";
-	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it ++)
+	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 

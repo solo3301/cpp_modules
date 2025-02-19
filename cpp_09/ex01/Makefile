@@ -6,12 +6,12 @@
 #    By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/02/17 12:05:48 by yadereve         ###   ########.fr        #
+#    Updated: 2025/02/19 09:06:17 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = mutantstack
-cC = c++
+CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR = sources
@@ -32,7 +32,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@echo "[OK]\t$(ORANGE)"$@"$(NC)"
 
 $(NAME): $(OBJ)
-	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME) -lc++
+	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "[OK]\t$(GREEN)$(NAME)$(NC) ready to use"
 	@echo "------------------------------"
 
