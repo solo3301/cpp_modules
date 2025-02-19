@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/19 12:38:51 by yadereve          #+#    #+#             */
+/*   Updated: 2025/02/19 17:10:06 by yadereve         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/BitcoinExchange.hpp"
 #include <fstream>
 #include <sstream>
@@ -22,12 +34,12 @@ BitcoinExchange::~BitcoinExchange()
 void BitcoinExchange::loadExchangeRates(const std::string& fileName)
 {
 	std::ifstream file(fileName.c_str());
-	if (file.is_open())
+	if (!file.is_open())
 	{
 		std::cerr << "Error: Cannot open exchange rate file" << std::endl;
 		return;
 	}
-	
+
 	std::string line;
 	std::getline(file, line);
 	while (std::getline(file, line))
@@ -35,7 +47,17 @@ void BitcoinExchange::loadExchangeRates(const std::string& fileName)
 		std::istringstream ss(line);
 		std::string date, rateStr;
 		if (std::getline(ss, date, ',') && std::getline(ss, rateStr))
-			_exchangeRates[date] = std::atof(rateStr.c_str());
+		{
+			size_t first = rateStr.find_first_not_of(" \t");
+			size_t last = rateStr.find_last_not_of(" \t");
+			if (first != std::string::npos && last != std::string::npos)
+				rateStr = rateStr.substr(first, last - first + 1);
+			double rate = std::atof(rateStr.c_str());
+			if (rate != 0.0)
+				_exchangeRates[date] = rate;
+		}
+		else
+			std::cerr << "Error: Invalid data fotmat in line: " << line << std::endl;
 	}
 	file.close();
 }
@@ -52,6 +74,26 @@ double BitcoinExchange::getRateForDate(const std::string& date) const
 	return it->second;
 }
 
+static bool isLeapYear(int year)
+{
+	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+static bool isValidDate(const std::string& date)
+{
+	if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+		return false;
+	int year = atoi(date.substr(0, 4).c_str());
+	int month = atoi(date.substr(5, 2).c_str());
+	int day = atoi(date.substr(8, 2).c_str());
+	if (month < 1 || month > 12)
+		return false;
+	int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	if (month == 2 && isLeapYear(year))
+		daysInMonth[1] = 29;
+	return day >= 1 && day <= daysInMonth[month - 1];
+}
+
 void BitcoinExchange::processFile(const std::string& fileName) const
 {
 	std::ifstream file(fileName.c_str());
@@ -60,7 +102,6 @@ void BitcoinExchange::processFile(const std::string& fileName) const
 		std::cerr << "Error: Cannot open input file" << std::endl;
 		return;
 	}
-
 	std::string line;
 	std::getline(file, line);
 	while (std::getline(file, line))
@@ -73,7 +114,12 @@ void BitcoinExchange::processFile(const std::string& fileName) const
 			continue;
 		}
 		date.erase(date.find_last_not_of(" ") + 1);
-		valueStr.erase(0, valueStr.find_last_not_of(" "));
+		if (!isValidDate(date))
+		{
+			std::cout << "Error: Invalid date -> " << date << std::endl;
+			continue;
+		}
+		valueStr.erase(0, valueStr.find_first_not_of(" "));
 		double value = std::atof(valueStr.c_str());
 		if (value < 0)
 		{

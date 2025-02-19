@@ -6,12 +6,12 @@
 #    By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 16:49:31 by yadereve          #+#    #+#              #
-#    Updated: 2025/02/18 18:58:38 by yadereve         ###   ########.fr        #
+#    Updated: 2025/02/19 12:57:41 by yadereve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bitcoin
-cC = c++
+NAME = btc
+CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR = sources
@@ -32,7 +32,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@echo "[OK]\t$(ORANGE)"$@"$(NC)"
 
 $(NAME): $(OBJ)
-	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME) -lc++
+	@$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "[OK]\t$(GREEN)$(NAME)$(NC) ready to use"
 	@echo "------------------------------"
 
