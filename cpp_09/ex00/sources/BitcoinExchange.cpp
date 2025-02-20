@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:38:51 by yadereve          #+#    #+#             */
-/*   Updated: 2025/02/20 07:45:51 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/20 18:10:56 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void BitcoinExchange::loadExchangeRates(const std::string& fileName)
 				_exchangeRates[date] = rate;
 		}
 		else
-			std::cerr << "Error: Invalid data fotmat in line: " << line << std::endl;
+			std::cerr << "Error: Invalid data format in line: " << line << std::endl;
 	}
 	file.close();
 }
@@ -123,7 +123,7 @@ void BitcoinExchange::processFile(const std::string& fileName) const
 		double value = std::atof(valueStr.c_str());
 		if (value < 0)
 		{
-			std::cerr << "Error: not a positiv number" << std::endl;
+			std::cerr << "Error: not a positive number" << std::endl;
 			continue;
 		}
 		if (value > 1000)

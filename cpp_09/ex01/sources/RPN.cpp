@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 08:07:07 by yadereve          #+#    #+#             */
-/*   Updated: 2025/02/20 08:30:57 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/20 18:13:25 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void RPN::evaluateExpression(const std::string& expression)
 	}
 	if (stack.size() != 1)
 	{
-		std::cerr << "Error: Invalid RPN expession" << std::endl;
+		std::cerr << "Error: Invalid RPN expression" << std::endl;
 		return;
 	}
 	std::cout << stack.top() << std::endl;
