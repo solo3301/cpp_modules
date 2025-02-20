@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:38:51 by yadereve          #+#    #+#             */
-/*   Updated: 2025/02/19 17:10:06 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/20 07:45:51 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void BitcoinExchange::processFile(const std::string& fileName) const
 		date.erase(date.find_last_not_of(" ") + 1);
 		if (!isValidDate(date))
 		{
-			std::cout << "Error: Invalid date -> " << date << std::endl;
+			std::cerr << "Error: Invalid date -> " << date << std::endl;
 			continue;
 		}
 		valueStr.erase(0, valueStr.find_first_not_of(" "));
