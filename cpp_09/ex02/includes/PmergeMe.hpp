@@ -16,6 +16,8 @@ public:
 	PmergeMe& operator=(const PmergeMe& other);
 	~PmergeMe();
 
+	void pushVector(std::vector<int>& vec, int& num);
+	void pushDeque(std::deque<int>& deq, int& num);
 	void sortAndMeasure(std::vector<int>& vec);
 	void sortAndMeasure(std::deque<int>& deq);
 	void printDurations(std::vector<int>& vec, std::deque<int>& deq);

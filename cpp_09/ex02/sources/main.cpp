@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:17:21 by yadereve          #+#    #+#             */
-/*   Updated: 2025/02/20 17:12:17 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:13:23 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main(int ac, char* av[])
 
 	std::vector<int> vec;
 	std::deque<int> deq;
+	PmergeMe sort;
 	try
 	{
 		for (int i = 1; i < ac; i++)
@@ -32,8 +33,10 @@ int main(int ac, char* av[])
 					throw std::invalid_argument("Invalid input");
 			}
 			int num = std::atoi(av[i]);
-			vec.push_back(num);
-			deq.push_back(num);
+			if (num < 0)
+				throw std::invalid_argument("Invalid input men");
+			sort.pushVector(vec, num);
+			sort.pushDeque(deq, num);
 		}
 	}
 	catch (const std::exception& e)
@@ -45,7 +48,6 @@ int main(int ac, char* av[])
 	for (size_t i = 0; i < vec.size(); i++)
 		std::cout << vec[i] << " ";
 	std::cout << std::endl;
-	PmergeMe sort;
 	sort.sortAndMeasure(vec);
 	sort.sortAndMeasure(deq);
 	std::cout << "After: ";

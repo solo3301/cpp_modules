@@ -6,7 +6,7 @@
 /*   By: yadereve <yadereve@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:17:14 by yadereve          #+#    #+#             */
-/*   Updated: 2025/02/20 16:29:07 by yadereve         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:05:11 by yadereve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,28 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 PmergeMe::~PmergeMe()
 { }
 
+void PmergeMe::pushVector(std::vector<int>& vec, int& num)
+{
+	clock_t start = clock();
+	vec.push_back(num);
+	clock_t end = clock();
+	_durationVec += static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e3;
+}
+
+void PmergeMe::pushDeque(std::deque<int>& deq, int& num)
+{
+	clock_t start = clock();
+	deq.push_back(num);
+	clock_t end = clock();
+	_durationDeq += static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e3;
+}
+
 void PmergeMe::sortAndMeasure(std::vector<int>& vec)
 {
 	clock_t start = clock();
 	mergeInsertionSort(vec);
 	clock_t end = clock();
-	_durationVec = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e3;
+	_durationVec += static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e3;
 }
 
 void PmergeMe::sortAndMeasure(std::deque<int>& deq)
@@ -42,7 +58,7 @@ void PmergeMe::sortAndMeasure(std::deque<int>& deq)
 	clock_t start = clock();
 	mergeInsertionSort(deq);
 	clock_t end = clock();
-	_durationDeq = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e3;
+	_durationDeq += static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e3;
 }
 
 void PmergeMe::printDurations(std::vector<int>& vec, std::deque<int>& deq)
